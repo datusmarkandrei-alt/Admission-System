@@ -28,7 +28,6 @@ body {
 /* ======================= Uppersection container ======================= */
 
 .uppersection_container{
-    height: 100vh;
     border: 1px solid red;
     padding: var(--space-md);
     display: flex;
@@ -115,7 +114,7 @@ body {
 
 
 .cards_container{
-
+ border: 1px solid red;
 }
 
 
@@ -156,11 +155,132 @@ body {
   gap: 2px; /* spacing between <p> elements */
 }
 
+/* ======================= STEPS CONTAINER ======================= */
+.steps_container {
+  padding: var(--space-md);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+/* Shapes (circles + lines) */
+.steps_shapes_container {
+  display: grid;
+  grid-template-columns: auto 1fr auto 1fr auto;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0 var(--space-md);
+  
+}
+
+/* Step Circles */
+.step_one_circle_conatiner,
+.step_two_circle_conatiner,
+.step_three_circle_conatiner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
 
 
 
+.circle_shape_container{
+  border-radius: 50%;
+  padding: var(--space-xs);
+  background-color: var(--color-darkergreen-base);
+  color: var(--color-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
 
+/* Circle icon container */
+.step_one_icon_container {
+  border-radius: 50%;
+  padding: 2px;
+  color: var(--color-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--color-darkergreen-base);
+  
+}
 
+.step_two_icon_container, .step_three_icon_container{
+  border-radius: 50%;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--color-gray);
+}
+
+.circle_two_shape_container, .circle_three_shape_container{
+   border-radius: 50%;
+  padding: var(--space-xs);
+  color: var(--color-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--color-gray);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.step_two_circle_container, .step_three_circle_container{
+  border-radius: 50%;
+  padding: var(--space-xs);
+  background-color: var(--color-darkergreen-base);
+  color: var(--color-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.step_two_icon_container, .step_three_icon_container{
+  border-radius: 50%;
+  padding: 2px;
+  color: var(--color-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--color-darkergreen-base);
+}
+
+/* Line container */
+.line_shape_conatainer_steps {
+  display: flex;
+  align-items: center;
+}
+
+.lineshape {
+  border-top: 5px solid var(--color-darkergreen-base);
+  width: 100%;
+}
+
+.active_Step_description{
+  font-weight: 800;
+}
+
+/* ======================= STEPS DESCRIPTION ======================= */
+.steps_description_container {
+  margin-top: var(--space-md);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 var(--space-md);
+}
+
+.step_one_description p {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-dark);
+  text-align: left;
+  max-width: 120px;
+}
 
 
 /* ======================= FOOTER ======================= */

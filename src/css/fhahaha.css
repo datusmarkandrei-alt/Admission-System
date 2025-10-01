@@ -156,12 +156,13 @@ body {
 /* ======================= CARDS MENU CONTAINER ======================= */
 
 .cards_menu_container {
-  padding: var(--space-md);
+  padding: var(--space-xs);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--space-lg);
   max-width: 1400px; /* prevents overly wide stretching */
   margin: 0 auto; /* centers cards on larger screens */
+
 }
 
 .gradelvl_container_menu {
@@ -171,6 +172,7 @@ body {
   background: var(--color-white);
   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 8px; /* soft card shadow */
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-bottom: 5px solid var(--color-darkergreen-base) ;
 }
 
 .gradelvl_container_menu:hover {
@@ -183,7 +185,6 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: var(--space-sm);
-  border-bottom: 3px solid var(--color-darkergreen-base);
   border-radius: 8px 8px 0 0;
 }
 
@@ -214,6 +215,7 @@ body {
   .cards_menu_container {
     grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
     gap: var(--space-md);
+    
   }
 
   .gradelvl_container_menu {
@@ -226,13 +228,14 @@ body {
   .cards_menu_container {
     grid-template-columns: repeat(3, 1fr); /* 3 per row */
     gap: var(--space-lg);
+
   }
 }
 
 /* Big screens (1281px and up) */
 @media (min-width: 1281px) {
   .cards_menu_container {
-    grid-template-columns: repeat(4, 1fr); /* 4 per row on wide screens */
+    grid-template-columns: repeat(3, auto); /* 4 per row on wide screens */
   }
 }
 
