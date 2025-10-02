@@ -34,6 +34,11 @@
             </div>
           </div>
 
+          <!-- Mobile Hamburger -->
+          <button class="hamburger_icon" aria-label="Open menu" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu-icon lucide-menu"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+          </button>
+
           <!-- Right Side Navigation -->
           <div class="leftside">
             <!-- Navigation Links -->
@@ -63,6 +68,12 @@
         </div>
         <!-- END: NAVBAR SECTION -->
 
+        <!-- Mobile Nav Drawer -->
+        <nav class="hamburger_nav" aria-label="Mobile navigation">
+          <a href="#home" class="nav_link">Home</a>
+          <a href="#application" class="nav_link">My Application</a>
+        </nav>
+
 
         <!-- ========== CARDS CONTAINER ========== -->
         <div class="cards_container">
@@ -70,8 +81,8 @@
           <!-- Breadcrumb Navigation -->
           <div class="button_and_breadcrumb_container">
             <div class="backbuttn_container">
-              <button class="btn" aria-label="back">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left">
+              <button class="btn btn--outline btn_icon_only" aria-label="back">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left">
                   <path d="m15 18-6-6 6-6"/>
                 </svg>
               </button>
@@ -179,23 +190,23 @@
             <!-- Personal Information Form -->
             <div class="upper_forms_container">
               <div class="fname_input">
-                <input type="text" placeholder="First Name">
+                <input class="form_input" type="text" placeholder="First Name">
               </div>
 
               <div class="middlename_input">
-                <input type="text" placeholder="Middle Name">
+                <input class="form_input" type="text" placeholder="Middle Name">
               </div>
 
               <div class="lastname_input">
-                <input type="text" placeholder="Last Name">
+                <input class="form_input" type="text" placeholder="Last Name">
               </div>
 
               <div class="suffix_input">
-                <input type="text" placeholder="Suffix">
+                <input class="form_input" type="text" placeholder="Suffix">
               </div>
 
               <div class="custom-dropdown">
-                <select>
+                <select class="form_input">
                   <option value="" disabled selected>Select Gender</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
@@ -204,7 +215,7 @@
               </div>
 
               <div class="bidey">
-                <input type="date">
+                <input class="form_input" type="date">
               </div>
             </div>
             <!-- END: Personal Information Form -->
@@ -216,22 +227,22 @@
               <!-- Top Section: Address Details -->
               <div class="top_section">
                 <div class="House_Building_Number">
-                  <input type="text" placeholder="House/Unit/Building Number">
+                  <input class="form_input" type="text" placeholder="House/Unit/Building Number">
                 </div>
 
                 <div class="StreetName_input">
-                  <input type="text" placeholder="Street Name">
+                  <input class="form_input" type="text" placeholder="Street Name">
                 </div>
 
                 <div class="Subdivision_Village_input">
-                  <input type="text" placeholder="Subdivision/Village">
+                  <input class="form_input" type="text" placeholder="Subdivision/Village">
                 </div>
               </div>
 
               <!-- Lower Section: City & Barangay -->
               <div class="lower_section">
                 <div class="custom_dropdown_city">
-                  <select>
+                  <select class="form_input">
                     <option value="" disabled selected>City</option>
                     <option value="caloocan">Caloocan</option>
                     <option value="laspinas">Las Piñas</option>
@@ -253,7 +264,7 @@
                 </div>
 
                 <div class="custom_dropdown_barangay">
-                  <select>
+                  <select class="form_input">
                     <option value="" disabled selected>Barangay</option>
                     <option value="bagongilog">Bagong Ilog</option>
                     <option value="bagongkatipunan">Bagong Katipunan</option>
@@ -293,7 +304,7 @@
 
             <!-- Continue Button -->
             <div class="button_container_forms">
-              <button class="btn">
+              <button class="btn btn_primary">
                 Continue
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right">
                   <path d="M5 12h14"/>
@@ -321,7 +332,7 @@
                 <div class="front_id_card_container_lower">
                   <p>Front ID</p>
                   <div class="icontainer">
-                    <button class="btn">
+                    <button class="btn btn_icon_only" aria-label="download front id">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download">
                         <path d="M12 15V3"/>
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -340,7 +351,7 @@
                 <div class="front_id_card_container_lower">
                   <p>Back ID</p>
                   <div class="icontainer">
-                    <button class="btn">
+                    <button class="btn btn_icon_only" aria-label="download back id">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download">
                         <path d="M12 15V3"/>
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -366,7 +377,7 @@
                 <div class="front_id_card_container_lower">
                   <p>Parent/Guardian Front ID</p>
                   <div class="icontainer">
-                    <button class="btn">
+                    <button class="btn btn_icon_only" aria-label="download guardian front id">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download">
                         <path d="M12 15V3"/>
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -385,7 +396,7 @@
                 <div class="back_id_card_container_lower">
                   <p>Parent/Guardian Back ID</p>
                   <div class="icontainer">
-                    <button class="btn">
+                    <button class="btn btn_icon_only" aria-label="download guardian back id">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download">
                         <path d="M12 15V3"/>
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -404,7 +415,7 @@
                 <div class="back_id_card_container_lower">
                   <p>Notarized Affidavit of Guardianship</p>
                   <div class="icontainer">
-                    <button class="btn">
+                    <button class="btn btn_icon_only" aria-label="download affidavit template">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download">
                         <path d="M12 15V3"/>
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -430,7 +441,7 @@
                 <div class="front_id_card_container_lower">
                   <p>Birth Certificate (PSA)</p>
                   <div class="icontainer">
-                    <button class="btn btn__icon">
+                    <button class="btn btn_icon_only" aria-label="download birth certificate template">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download">
                         <path d="M12 15V3"/>
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -449,7 +460,7 @@
                 <div class="back_id_card_container_lower">
                   <p>Certified True Copy of Form 138</p>
                   <div class="icontainer">
-                    <button class="btn btn__icon">
+                    <button class="btn btn_icon_only" aria-label="download form 138 template">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download">
                         <path d="M12 15V3"/>
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -468,7 +479,7 @@
                 <div class="back_id_card_container_lower">
                   <p>Two Passport Size Picture White Background With Nameplate</p>
                   <div class="icontainer">
-                    <button class="btn btn__icon">
+                    <button class="btn btn_icon_only" aria-label="download passport photo guide">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download">
                         <path d="M12 15V3"/>
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -488,11 +499,11 @@
 
             <!-- Action Buttons -->
             <div class="button_container_forms">
-              <button class="btn btn--primary">
+              <button class="btn btn--outline">
                 back
               </button>
 
-              <button class="btn btn--primary">
+              <button class="btn btn_primary">
                 Continue
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right">
                   <path d="M5 12h14"/>
@@ -513,7 +524,7 @@
 
               <div class="upper_step_three_container">
                 <div class="lrn_input">
-                  <input type="text" placeholder="LRN">
+                  <input class="form_input" type="text" placeholder="LRN">
                 </div>
               </div>
               
@@ -525,11 +536,11 @@
               <div class="school_description_container">
 
                 <div class="lrn_input">
-                 <input type="text" placeholder="Name of Last School Attended">
+                 <input class="form_input" type="text" placeholder="Name of Last School Attended">
                 </div>
 
                 <div class="custom_dropdown_school_type">
-                  <select>
+                  <select class="form_input">
                     <option value="" disabled selected>Type of School</option>
                     <option value="Public">Public</option>
                     <option value="Private">Private</option>
@@ -537,7 +548,7 @@
                 </div>
 
                 <div class="custom_dropdown_strand">
-                  <select>
+                  <select class="form_input">
                     <option value="" disabled selected>Strand/Track</option>
                     <option value="bagongilog">STEM</option>
                     <option value="bagongkatipunan">TITE</option>
@@ -550,19 +561,19 @@
               <div class="school_avrg_details_container">
 
                 <div class="lrn_input">
-                 <input type="text" placeholder="General Average in Filipino">
+                 <input class="form_input" type="text" placeholder="General Average in Filipino">
                 </div>
 
                 <div class="lrn_input">
-                 <input type="text" placeholder="General Average in English">
+                 <input class="form_input" type="text" placeholder="General Average in English">
                 </div>
 
                 <div class="lrn_input">
-                 <input type="text" placeholder="General Average in Math">
+                 <input class="form_input" type="text" placeholder="General Average in Math">
                 </div>
 
                 <div class="lrn_input">
-                  <input type="text" placeholder="General Average in Science">
+                  <input class="form_input" type="text" placeholder="General Average in Science">
                 </div>
               </div>
             </div>
@@ -571,7 +582,7 @@
 
               
                <div class="custom_dropdown_first_choice">
-                  <select>
+                  <select class="form_input">
                     <option value="" disabled selected>!st choice</option>
                     <option value="Public">Public</option>
                     <option value="Private">Private</option>
@@ -580,7 +591,7 @@
                 </div>
 
                 <div class="custom_dropdown_second_choice">
-                  <select>
+                  <select class="form_input">
                     <option value="" disabled selected>Second choice</option>
                     <option value="bagongilog">STEM</option>
                     <option value="bagongkatipunan">TITE</option>
@@ -590,11 +601,11 @@
             </div>
 
            <div class="button_container_forms">
-              <button class="bttn">
+              <button class="btn btn--outline">
                 back
               </button>
 
-              <button class="btn btn--primary">
+              <button class="btn btn_primary">
                 submit
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right">
                   <path d="M5 12h14"/>
