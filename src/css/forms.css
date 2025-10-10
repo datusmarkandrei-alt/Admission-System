@@ -25,6 +25,10 @@ body {
   overflow-x: hidden;
 }
 
+
+.landingpage {
+  background: linear-gradient(to bottom, #154016, #136515, #507d50);
+}
 /* ======================= HAMBURGER NAV ======================= */
   .hamburger_area {
     display: none;
@@ -220,7 +224,6 @@ body {
 /* ======================= BANNER SECTION ======================= */
 .banner_container {
   grid-area: banner_container;
-  padding: var(--space-xl) var(--space-md);
   background-image: url(../images/banner_images.png);
   background-size: cover;
   background-position: center;
@@ -228,15 +231,29 @@ body {
   min-height: clamp(300px, 40vh, 500px);
   display: flex;
   align-items: center;
+  position: relative;
+}
+
+.banner_container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 .text_container {
-  padding: var(--space-md);
+   padding: var(--space-md);
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
   max-width: 800px;
   width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .breadcrumb {
@@ -336,7 +353,7 @@ body {
 .bottom_forms_selection {
   padding: var(--space-lg);
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1fr;
   gap: var(--space-xl);
   background-color: rgba(21, 64, 22, 0.85);
   border-radius: var(--radius-md);
@@ -378,7 +395,7 @@ body {
 /* Right content */
 .forms_image_background {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: var(--space-lg);
   background: rgba(20, 58, 21, 0.9);
   border-radius: var(--radius-sm);
@@ -537,6 +554,15 @@ body {
     grid-template-columns: 1fr 1fr;
     align-items: center;
     padding: 3rem 2rem;
+  }
+
+  .bottom_forms_selection{
+    
+     grid-template-columns: 1fr 1.5fr;
+  }
+
+  .forms_image_background{
+    grid-template-columns: 1fr 1.5fr;
   }
 }
 

@@ -27,6 +27,8 @@ body {
   background: linear-gradient(to bottom, #154016, #136515, #507d50);
 }
 
+
+
 /* ======================= NAVIGATION ======================= */
 .navbar {
   display: grid;
@@ -410,6 +412,7 @@ body {
   font-weight: 900;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
+  margin-top: var(--space-lg);
 }
 
 /* ======================= OFFICERS PROFILE WALL ======================= */
@@ -473,7 +476,7 @@ body {
 /* ======================= OTHER OFFICERS SECTION ======================= */
 .officers__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: var(--space-xl);
   margin-top: 40px;
   padding: var(--space-lg);

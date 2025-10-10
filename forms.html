@@ -14,9 +14,6 @@
     <link rel="stylesheet" href="./src/css/forms.css" />
     <link rel="stylesheet" href="./src/css/global_styling.css">
 
-    <!-- Navbar JS -->
-    <script src="./src/Javascript/Navbar.js" defer></script>
-
     <title>Student Service Support</title>
   </head>
 
@@ -43,11 +40,11 @@
 
             <!-- Menu List -->
             <div class="menu_list" role="navigation" aria-label="Primary">
-              <a href="#" class="active">HOME</a>
+              <a href="./index.html">HOME</a>
               <a href="#services">ADMISSION</a>
-              <a href="#">FORMS</a>
-              <a href="#contact">CONTACT US</a>
-              <a href="#about">ABOUT</a>
+              <a href="./forms.html" class="active">FORMS</a>
+              <a href="./contactus.html">CONTACT US</a>
+              <a href="./About.html">ABOUT</a>
             </div>
 
             <!-- Right Side -->
@@ -265,25 +262,7 @@
 
   </body>
 
-   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-  const hamburger = document.querySelector('.hamburger_icon');
-  const navMenu = document.querySelector('.hamburger_nav');
-
-  if (!hamburger || !navMenu) return;
-
-  // Toggle menu
-  hamburger.addEventListener('click', function (e) {
-    e.stopPropagation(); // prevent closing immediately
-    navMenu.classList.toggle('active');
-  });
-
-  // Close menu when clicking outside
-  document.addEventListener('click', function (e) {
-    if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
-      navMenu.classList.remove('active');
-    }
-  });
-});
+  <!-- ================= JAVASCRIPT ================= -->
+    <script src="./src/Javascript/Navbar.js" defer></script>
    </script>
 </html>

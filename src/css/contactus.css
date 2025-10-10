@@ -26,6 +26,10 @@ body {
   flex-direction: column;
   overflow-x: hidden;
 }
+
+.landingpage {
+  background: linear-gradient(to bottom, #154016, #136515, #507d50);
+}
 /* ======================= HAMBURGER NAV ======================= */
   .hamburger_area {
     display: none;
@@ -331,7 +335,6 @@ body {
 /* ======================= BANNER SECTION ======================= */
 .banner_container {
   grid-area: banner_container;
-  padding: var(--space-xl) var(--space-md);
   background-image: url(../images/banner_images.png);
   background-size: cover;
   background-position: center;
@@ -339,15 +342,29 @@ body {
   min-height: clamp(300px, 40vh, 500px);
   display: flex;
   align-items: center;
+  position: relative;
+}
+
+.banner_container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 .text_container {
-  padding: var(--space-md);
+   padding: var(--space-md);
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
   max-width: 800px;
   width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .breadcrumb {
