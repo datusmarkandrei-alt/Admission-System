@@ -10,11 +10,11 @@
       rel="stylesheet"/>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="../css/landingpage.css" />
-    <link rel="stylesheet" href="../css/global_styling.css">
+    <link rel="stylesheet" href="./src/css/landingpage.css" />
+    <link rel="stylesheet" href="./src/css/global_styling.css">
 
     <!-- JS -->
-    <script src="./Javascript/Navbar.js" defer></script>
+    <script src="./src/Javascript/Navbar.js" defer></script>
 
     <title>Student Service Support</title>
   </head>
@@ -29,7 +29,7 @@
             <div class="logo">
               <div class="plp_logo">
                 <img
-                  src="../images/Student_Servoice-removebg-preview.png"
+                  src="./src/images/Student_Servoice-removebg-preview.png"
                   alt="Pamantasan Logo"
                 />
               </div>
@@ -176,36 +176,34 @@
       <section id="services" class="services" aria-label="Services">
         <!-- HERO AREA -->
         <div class="header_services">
-          <div class="container_top">
-            <!-- Circle + Icon -->
-            <div class="circle_container">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="22"
-                height="22"
-                fill="white"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"
-                />
-                <path d="M9 18h6" />
-                <path d="M10 22h4" />
-              </svg>
+           <div class="banner_section">
+            <div class="shapes_container">
+              <div class="circle_container">
+                <div class="circle">
+                  <!-- Info Icon -->
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="40" 
+                    height="40" 
+                    viewBox="0 0 24 24" 
+                    fill="white" 
+                    stroke="green" 
+                    stroke-width="2" 
+                    stroke-linecap="round" 
+                    stroke-linejoin="round" 
+                    class="lucide lucide-info">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 16v-4"/>
+                    <path d="M12 8h.01"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="line_container">
+                <div class="line"></div>
+              </div>
             </div>
-
-            <!-- Yellow Line -->
-            <div class="line_container">
-              <div class="line"></div>
-            </div>
+            <h3 class="banner_title">WHAT SERVICES WE OFFER</h3>
           </div>
-
-          <!-- Subheading -->
-          <div class="subheading_services">What Services We Offer?</div>
         </div>
 
         <!-- BODY CARDS -->
@@ -214,7 +212,7 @@
             <!-- Card 1 -->
             <div class="card">
               <div class="imagesholder">
-                <img src="../images/ID_replacement.png" alt="ID Replacement" />
+                <img src="./src/images/ID_replacement.png" alt="ID Replacement" />
               </div>
               <div class="text_holder">
                 <p>
@@ -247,7 +245,7 @@
             <div class="card">
               <div class="imagesholder">
                 <img
-                  src="../images/lost_and_fond_card_cover.png"
+                  src="./src/images/lost_and_fond_card_cover.png"
                   alt="Lost and Found"
                 />
               </div>
@@ -259,7 +257,7 @@
                 <div class="lineforcards"></div>
                 <div class="service_card_title">
                   <p>Lost & Found</p>
-                 <button aria-label="next">
+                 <button aria-label="next" >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -282,7 +280,7 @@
             <div class="card">
               <div class="imagesholder">
                 <img
-                  src="../images/Good_moral_card_cover.png"
+                  src="./src/images/Good_moral_card_cover.png"
                   alt="Good Moral"
                 />
               </div>
@@ -345,40 +343,37 @@
       <!-- ================= About Section ================= -->
       <section id="about" class="about_section" aria-labelledby="about-heading">
         <!-- Banner -->
-        <div class="about_banner">
-          <div class="container_top_about">
-            <!-- Circle + Icon -->
-            <div class="circle_container_about">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="22"
-                height="22"
-                fill="white"
-                stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"
-                />
-                <path d="M9 18h6" />
-                <path d="M10 22h4" />
-              </svg>
-            </div>
+   
 
-            <!-- Yellow Line -->
-            <div class="line_container_about">
-              <div class="line_about"></div>
+           <div class="banner_section">
+            <div class="shapes_container">
+              <div class="circle_container">
+                <div class="circle">
+                  <!-- Info Icon -->
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="40" 
+                    height="40" 
+                    viewBox="0 0 24 24" 
+                    fill="white" 
+                    stroke="green" 
+                    stroke-width="2" 
+                    stroke-linecap="round" 
+                    stroke-linejoin="round" 
+                    class="lucide lucide-info">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 16v-4"/>
+                    <path d="M12 8h.01"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="line_container">
+                <div class="line"></div>
+              </div>
             </div>
+            <h3 class="banner_title">About Student services</h3>
           </div>
 
-          <!-- Subheading -->
-          <div id="about-heading" class="subheading_about">
-            About Student services
-          </div>
-        </div>
 
         <!-- Body -->
         <div class="about_body">
@@ -587,7 +582,7 @@
                             </form>
 
                             <div class="button_area">
-                                <button class="btn btn--primary">Send Message</button>
+                                <button class="button_send">Send Message</button>
 
                             </div>
 
@@ -597,7 +592,7 @@
       </section>
 
       <div class="footer_image">
-        <img src="../images/footer_image.svg" alt="footer image" />
+        <img src="./src/images/footer_image.svg" alt="footer image" />
       </div>
 
       <!-- ================= Footer ================= -->
@@ -610,10 +605,10 @@
             </p>
             <div class="footer_logos" aria-hidden="true">
               <img
-                src="../images/Student_Servoice-removebg-preview.png"
+                src="./src/images/Student_Servoice-removebg-preview.png"
                 alt="Graduate"
               />
-              <img src="../images/Inang_pamantasan_logo.png" alt="Pasig City" />
+              <img src="./src/images/Inang_pamantasan_logo.png" alt="Pasig City" />
             </div>
           </div>
           <div class="footer_cols" aria-label="Footer links">
@@ -666,6 +661,6 @@
       <!-- ================= END OF THE MAIN CONTAINER ================= -->
     </div>
 
-    <script src="../Javascript/Navbar.js"></script>
+    <script src="./srcs/Javascript/Navbar.js"></script>
   </body>
 </html>

@@ -24,7 +24,7 @@ body {
 }
 
 .landingpage {
-  background: linear-gradient(to bottom, #154016, #507d50, #a4a4a4);
+  background: linear-gradient(to bottom, #154016, #136515, #507d50);
 }
 
 /* ======================= NAVIGATION ======================= */
@@ -174,8 +174,6 @@ body {
 }
 
 .hamburger_icon {
-  width: 30px;
-  height: 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -206,7 +204,7 @@ body {
   position: absolute;
   top: 100%;
   right: 0;
-  width: 430px;
+  width: 100%;
   padding: 15px;
   display: none;
   flex-direction: column;

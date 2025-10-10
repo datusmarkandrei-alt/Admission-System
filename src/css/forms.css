@@ -417,23 +417,20 @@ body {
 }
 
 .button_area_forms button {
-  background: rgba(31, 92, 31, 0.9);
-  border: 2px solid var(--color-yellow-base);
-  border-radius: var(--radius-sm);
-  padding: var(--space-xs) var(--space-md);
-  color: white;
-  cursor: pointer;
-  transition: all var(--transition-base);
+  background-color: var(--color-green-base);
+  padding: var(--space-xs);
+  border-radius: 6px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  min-height: 40px;
+  transition: all 0.3s ease;
+  border:none ;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
 
 .button_area_forms button:hover {
   background: var(--color-green-base);
   transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
 }
 
 .document_image {
