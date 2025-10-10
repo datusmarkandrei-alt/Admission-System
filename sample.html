@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- ================= GOOGLE FONTS ================= -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"/>
@@ -12,19 +11,13 @@
     <!-- ================= CUSTOM CSS ================= -->
     <link rel="stylesheet" href="./src/css/reviseformStudent.css" />
     <link rel="stylesheet" href="./src/css/global_styling.css" />
-
-    <title>Student Service Support</title>
-  </head>
-
-  <body>
-    
-    <div><!-- ================= start ================= -->
-
-
-      <div class="maincontainer"><!-- ================= start ================= -->
-
-        <div class="uppersection_container">
-          <div class="navbar_section"> <!-- ================= NAVBAR SECTION ================= -->
+</head>
+<body>
+        <!-- ================= MAIN CONTAINER ================= -->
+    <div class="maincontainer">
+      <div class="uppersection_container">
+        <!-- ================= NAVBAR SECTION ================= -->
+        <div class="navbar_section">
           <div class="logo_container">
             <img src="./src/images/Inang_pamantasan_logo.png" alt="PLP_LOGO" />
             <div class="title">
@@ -33,8 +26,8 @@
           </div>
 
           <div class="hamburger_area">
-            <div class="hamburger_icon_container"><!-- Hamburger Icon -->
-              
+            <div class="hamburger_icon_container">
+              <!-- Hamburger Icon -->
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -99,7 +92,8 @@
               </svg>
             </div>
           </div>
-        </div><!-- END: NAVBAR SECTION -->
+        </div>
+        <!-- END: NAVBAR SECTION -->
 
         <!-- ================= CARDS CONTAINER ================= -->
         <div class="cards_container">
@@ -268,10 +262,11 @@
                 </div>
               </div>
             </div>
-          </div><!-- END: STEPS INDICATOR -->
+          </div>
+          <!-- END: STEPS INDICATOR -->
 
           <!-- ================= FORMS CONTAINER ================= -->
-          <div class="forms_container" id="forms_container_id">
+          <div class="forms_container">
             <h3>Profile Information</h3>
 
             <!-- Personal Information Form -->
@@ -400,18 +395,20 @@
             </div>
 
             <div class="action_button_containers">
-                  <div class="Submit_button_container">
-                    <button id="first_button_submit" onclick="submitBtn_step1()">
-                      Submit
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </button>
-                  </div>
-            </div>
+              <div class="Submit_button_container">
+                 <button>
+                  Submit
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+              </div>
           </div>
+
+          
           <!-- END: FORMS CONTAINER -->
 
-          <!-- ========== REQUIREMENTS SECTION ========== -->
-          <div class="requirements_container" id="requirements_container_id">
+
+            <!-- ========== REQUIREMENTS SECTION ========== -->
+            <div class="requirements_container">
               <h3>Applicant Valid ID (Government Issued ID/School ID)</h3>
 
               <div class="id_cards_conatiner">
@@ -434,7 +431,8 @@
                       </div>
                     </div>
                   </div>
-                   <!-- Back ID Card -->
+
+                  <!-- Back ID Card -->
                   <div class="back_id__card_container_upper">
                     <div class="officers__card-picture">
                       
@@ -587,15 +585,17 @@
 
 
                       <div class="Submit_button_container">
-                          <button id="second_button_submit">
+                          <button>
                             Submit
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                           </button>
                     </div>
               </div>
-            </div> <!-- END: Applicant ID Cards -->
+            </div>
+            <!-- END: Applicant ID Cards -->
 
-            <div class="application_details_container" id="application_details_container_id">
+
+            <div class="application_details_container">
 
 
              <div class="LRN_step_three_container">
@@ -699,7 +699,7 @@
 
 
                       <div class="Submit_button_container">
-                          <button id="third_button_submit">
+                          <button>
                             Submit
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                           </button>
@@ -713,87 +713,6 @@
           </div>
       </div> 
     </div>
-
-
-
-
-
-
-      </div><!-- ================= END ================= -->
-
-    <div class="footer_image">
-        <img src="./src/images/footer_image.svg" alt="footer image" />
-      </div>
-
-      <!-- ================= Footer ================= -->
-      <footer class="site_footer" role="contentinfo">
-        <div class="footer_inner">
-          <div class="footer_intro">
-            <p>
-              We keep things simple, approachable, and are committed to helping
-              you start and stay on track with confidence.
-            </p>
-            <div class="footer_logos" aria-hidden="true">
-              <img
-                src="./src/images/Student_Servoice-removebg-preview.png"
-                alt="Graduate"
-              />
-              <img src="./src/images/Inang_pamantasan_logo.png" alt="Pasig City" />
-            </div>
-          </div>
-          <div class="footer_cols" aria-label="Footer links">
-            <div class="footer_col">
-              <h4>Navigation Pages</h4>
-              <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Forms</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-              </ul>
-            </div>
-            <div class="footer_col">
-              <h4>Legal</h4>
-              <ul>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms and Conditions</a></li>
-              </ul>
-            </div>
-            <div class="footer_col">
-              <h4>About PLP</h4>
-              <ul>
-                <li><a href="#">Mission and Vision</a></li>
-                <li><a href="#">News and Events</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <hr class="footer_divider" />
-        <div class="footer_bottom">
-          <div class="footer_copy">
-            <p>
-              Copyright © 2025 Pamantasan ng Lungsod ng Pasig. All Rights
-              Reserved
-            </p>
-            <p>Maintained by Student Success Office</p>
-            <p>Version 1.0</p>
-            <p>Developed By ABO | ADOR | DATUS</p>
-          </div>
-          <div class="footer_socials">
-            <a href="#" aria-label="Facebook" class="social_btn">f</a>
-            <a href="#" aria-label="LinkedIn" class="social_btn">in</a>
-            <a href="#" aria-label="Twitter" class="social_btn">tw</a>
-          </div>
-        </div>
-      </footer>
-
     
-
-
-    <!-- ================= JAVASCRIPT ================= -->
-    <script src="./src/Javascript/Navbar.js" defer></script>
-    <script src="./src/Javascript/button_forms_navigator.js"></script>
-  </body>
+</body>
 </html>
-
-
-
