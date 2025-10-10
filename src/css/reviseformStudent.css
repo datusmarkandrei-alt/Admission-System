@@ -11,13 +11,15 @@ body {
   line-height: 1.6;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  padding: 0;
 }
 
-.main_container {
+.maincontainer {
   width: 100%;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+  border: none;
 }
 
 /* ======================= uppercontainer styling ======================= */
@@ -26,6 +28,7 @@ body {
     flex-direction: column;
     gap: var(--space-md);
     padding: var(--space-lg);
+      border: none;
 }
 
 
@@ -655,7 +658,7 @@ input[type="date"].form_input:hover::-webkit-calendar-picker-indicator {
 @media (min-width: 1280px) {
   body {
     font-size: 18px;
-    padding: 2rem;
+    padding: 0; /* remove side gaps on large screens */
   }
 }
 
@@ -784,13 +787,13 @@ input[type="date"].form_input:hover::-webkit-calendar-picker-indicator {
 }
 
 .school_description_container{
-border: 1px solid red;
+/* debug border removed */
 }
 
 .school_avrg_details_container{
     border-bottom: 5px solid var(--color-green-base);
     padding-bottom: var(--space-md);
-    border: 1px solid red;
+    border: none;
 }
 
 .Program_Choice_Information{
@@ -803,93 +806,34 @@ border: 1px solid red;
     flex-direction: rows;
     justify-content: flex-end;
     gap: var(--space-sm);
-    padding-bottom:var(--space-lg) ;
-}
-
-/* ======================= button ID REQUIREMENTS ======================= */
-
-.icontainer button {
-  background: var(--color-green-base);
-  color: var(--color-white);
-  border: none;
-  padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 2.5vw, 1.5rem);
-  border-radius: 6px;
-  font-size: var(--font-size-sm);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-/* ======================= WIDE BUTTON ID REQUIREMENTS ======================= */
-
-.icontainer button:hover {
-  background: var(--color-green-base);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.icontainer button:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.icontainer button:focus-visible {
-  outline: 3px solid var(--ring-color);
-  outline-offset: 2px;
-}
-
-.Submit_button_container{
-    display: flex;
-    justify-content: flex-end;
-}
-
-.back_button_container button{
-    background: var(--color-green-base);
-    color: var(--color-white);
-    border: none;
-    padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 2.5vw, 1.5rem);
-    border-radius: var(--radius-sm);
-    font-size: var(--font-size-sm);
-    cursor: pointer;
-    transition: all var(--transition-base);
-    display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
 }
 
-.Submit_button_container button {
-    background: var(--color-green-base);
-    color: var(--color-white);
-    border: none;
-    padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 2.5vw, 1.5rem);
-    border-radius: var(--radius-sm);
-    font-size: var(--font-size-sm);
-    cursor: pointer;
-    transition: all var(--transition-base);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-  }
 
-  .Submit_button_container button:hover {
-    background: var(--color-green-base);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-sm);
-  }
 
-  .Submit_button_container_area button:focus-visible {
-    outline: 3px solid var(--ring-color);
-    outline-offset: 2px;
-  }
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .Submit_button_container button,
+    .backbutton button {
+        width: 100%; /* Full width on mobile */
+        max-width: 100%;
+        padding: 0.875rem 1.5rem;
+    }
+}
+
+@media (hover: none) {
+    /* Remove hover effects on touch devices */
+    .Submit_button_container button:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
 /* ======================= FOOTER ======================= */
 .site_footer {
   background: #0f3e10;
   color: var(--color-white);
   padding: var(--space-xl) var(--space-lg) var(--space-lg);
+  border: none;
 }
 
 .footer_inner {
@@ -1010,9 +954,10 @@ border: 1px solid red;
 }
 
 .footer_image img {
-  margin-top: var(--space-xxl);
+  margin-top: 0; /* remove extra gap above footer illustration */
   width: 100%;
   max-width: 100%;
+  display: block; /* avoid inline-image whitespace */
 }
 
 /* ======================= RESPONSIVE DESIGN ======================= */
