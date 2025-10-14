@@ -296,7 +296,7 @@ body {
   padding: var(--space-xl) var(--space-md);
   display: flex;
   width: 100%;
-  background: linear-gradient(to bottom, #154016, #507d50, #a4a4a4);
+  background: linear-gradient(to bottom, #154016, #507d50, #62a152);
   min-height: 600px;
 }
 
@@ -571,7 +571,7 @@ body {
 .footer_image{
   grid-area: footer_image;
   display: flex;
-  background: var(--color-darkergreen-base);
+  background: #62a152;
   justify-content:flex-end ;
   
 }

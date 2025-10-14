@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="src/css/dashboard.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    
+</head>
+<body>
+    <!-- Mobile Navbar -->
+    <nav class="navbar">
+        <div class="navbar__left">
+            <button class="btn btn--icon" id="mobileMenuToggle" aria-label="Toggle menu">
+                <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+            <div class="navbar__logo">AD</div>
+            <h2 class="navbar__title">SSO DASHBOARD</h2>
+        </div>
+        <button class="btn btn--icon" id="mobileThemeToggle" aria-label="Toggle theme">
+            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+            </svg>
+        </button>
+    </nav>
+
+    <!-- Layout Container -->
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar__header">
+                <div class="sidebar__logo">AD</div>
+                <h2 class="sidebar__title">SSO DASHBOARD</h2>
+            </div>
+
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-menu__item" data-target="main_content_section">
+                        <a href="#" class="nav-menu__link active">
+                            <svg class="nav-menu__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                            </svg>
+                            <span class="nav-menu__text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-menu__item" data-target="application_management_section">
+                        <a href="#" class="nav-menu__link">
+                            <svg class="nav-menu__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                            <span class="nav-menu__text">Applications Management</span>
+                        </a>
+                    </li>
+                    <li class="nav-menu__item" data-target="exam_permit_generation_section">
+                        <a href="#" class="nav-menu__link">
+                            <svg class="nav-menu__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                            </svg>
+                            <span class="nav-menu__text">Exam Permits Generator</span>
+                        </a>
+                    </li>
+                    <li class="nav-menu__item" data-target="scheduling_section">
+                        <a href="#" class="nav-menu__link">
+                            <svg class="nav-menu__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            <span class="nav-menu__text">Scheduling</span>
+                        </a>
+                    </li>
+                    <li class="nav-menu__item">
+                        <a href="#" class="nav-menu__link">
+                            <svg class="nav-menu__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                            </svg>
+                            <span class="nav-menu__text">Students</span>
+                        </a>
+                    </li>
+                    <li class="nav-menu__item" data-target="settings_section">
+                        <a href="#" class="nav-menu__link">
+                            <svg class="nav-menu__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span class="nav-menu__text">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            
+                <!-- Header -->
+                <header class="header">
+                    <div class="header__left">
+                        <h1>Dashboard Overview</h1>
+                        <p class="header__subtitle">Welcome back! Here's what's happening with your Admissions.</p>
+                    </div>
+                    <div class="header__actions">
+                        <button class="btn btn--icon" id="sidebarToggle" aria-label="Toggle sidebar">
+                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                            </svg>
+                        </button>
+                        
+                        <button class="btn btn--primary">
+                            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                            </svg>
+                            New Application
+                        </button>
+                    </div>
+                </header>
+
+            <section class="section active" id="main_content_section">
+                <!-- KPI Cards -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-card__header">
+                            <div>
+                                <div class="kpi-card__label">Applications</div>
+                            </div>
+                            <div class="kpi-card__icon kpi-card__icon--blue">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 28px; height: 28px;">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="kpi-card__value">1,248</div>
+                        <div class="kpi-card__trend kpi-card__trend--up">
+                            <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+                            </svg>
+                            +12.5% from last month
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-card__header">
+                            <div>
+                                <div class="kpi-card__label">Approved</div>
+                            </div>
+                            <div class="kpi-card__icon kpi-card__icon--green">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 28px; height: 28px;">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="kpi-card__value">892</div>
+                        <div class="kpi-card__trend kpi-card__trend--up">
+                            <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+                            </svg>
+                            +8.3% from last month
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-card__header">
+                            <div>
+                                <div class="kpi-card__label">Pending</div>
+                            </div>
+                            <div class="kpi-card__icon kpi-card__icon--yellow">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 28px; height: 28px;">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="kpi-card__value">264</div>
+                        <div class="kpi-card__trend kpi-card__trend--up">
+                            <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+                            </svg>
+                            +5.2% from last month
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-card__header">
+                            <div>
+                                <div class="kpi-card__label">Rejected</div>
+                            </div>
+                            <div class="kpi-card__icon kpi-card__icon--red">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 28px; height: 28px;">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="kpi-card__value">92</div>
+                        <div class="kpi-card__trend kpi-card__trend--down">
+                            <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                            </svg>
+                            -3.1% from last month
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart Container -->
+                <div class="chart-container">
+                    <div class="chart-container__header">
+                        <h2 class="chart-container__title">Application Trends</h2>
+                        <p class="chart-container__subtitle">Monthly application statistics for the past 6 months</p>
+                    </div>
+                    <div class="chart-container__canvas">
+                        <canvas id="applicationChart"></canvas>
+                    </div>
+                </div>
+                
+
+            
+                    <!-- Recent Activity Table -->
+                <div class="table-container">
+                    <div class="table-container__header">
+                        <h2 class="table-container__title">Recent Activity</h2>
+                    </div>
+                   <table class="table">
+                        <thead>
+                            <tr>
+                            <th>Application ID</th>
+                            <th>Student Name</th>
+                            <th>Course</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td data-cell="Application ID">#APP-2845</td>
+                            <td data-cell="Student Name">Maria Santos</td>
+                            <td data-cell="Course">Computer Science</td>
+                            <td data-cell="Date">Oct 10, 2025</td>
+                            <td data-cell="Status"><span class="badge badge--success">Approved</span></td>
+                            </tr>
+                            <tr>
+                            <td data-cell="Application ID">#APP-2844</td>
+                            <td data-cell="Student Name">Juan Dela Cruz</td>
+                            <td data-cell="Course">Business Admin</td>
+                            <td data-cell="Date">Oct 10, 2025</td>
+                            <td data-cell="Status"><span class="badge badge--warning">Pending</span></td>
+                            </tr>
+                            <tr>
+                            <td data-cell="Application ID">#APP-2843</td>
+                            <td data-cell="Student Name">Anna Reyes</td>
+                            <td data-cell="Course">Engineering</td>
+                            <td data-cell="Date">Oct 9, 2025</td>
+                            <td data-cell="Status"><span class="badge badge--success">Approved</span></td>
+                            </tr>
+                            <tr>
+                            <td data-cell="Application ID">#APP-2842</td>
+                            <td data-cell="Student Name">Carlos Garcia</td>
+                            <td data-cell="Course">Information Tech</td>
+                            <td data-cell="Date">Oct 9, 2025</td>
+                            <td data-cell="Status"><span class="badge badge--danger">Rejected</span></td>
+                            </tr>
+                            <tr>
+                            <td data-cell="Application ID">#APP-2841</td>
+                            <td data-cell="Student Name">Sofia Martinez</td>
+                            <td data-cell="Course">Nursing</td>
+                            <td data-cell="Date">Oct 8, 2025</td>
+                            <td data-cell="Status"><span class="badge badge--success">Approved</span></td>
+                            </tr>
+                            <tr>
+                            <td data-cell="Application ID">#APP-2840</td>
+                            <td data-cell="Student Name">Miguel Torres</td>
+                            <td data-cell="Course">Architecture</td>
+                            <td data-cell="Date">Oct 8, 2025</td>
+                            <td data-cell="Status"><span class="badge badge--warning">Pending</span></td>
+                            </tr>
+                            <tr>
+                            <td data-cell="Application ID">#APP-2839</td>
+                            <td data-cell="Student Name">Isabella Cruz</td>
+                            <td data-cell="Course">Psychology</td>
+                            <td data-cell="Date">Oct 7, 2025</td>
+                            <td data-cell="Status"><span class="badge badge--success">Approved</span></td>
+                            </tr>
+                        </tbody>
+                        </table>
+                </div>
+            </section>
+
+            <!-- Application Management Section -->
+            <section class="section" id="application_management_section">
+                <div class="table-container">
+                    <div class="table-container__header">
+                        <h2 class="table-container__title">Application Management</h2>
+                        <p class="table-container__subtitle">Manage all student applications and their status</p>
+                    </div>
+
+                    <div class="filtration_container">
+                        <div class="search_input_container">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+                            <input type="text" placeholder="Search applications...">
+                        </div>
+
+                        <div class="search_button_container">
+                            <button class="button filter">Filter
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list-filter-plus-icon lucide-list-filter-plus"><path d="M12 5H2"/><path d="M6 12h12"/><path d="M9 19h6"/><path d="M16 5h6"/><path d="M19 8V2"/></svg></span>
+                            </button>
+                        </div>
+
+                        <!-- Modal Filter -->
+                        <div id="filterPopupApplications" class="modal">
+                            <div class="modal-content">
+                                <h3>Filter Applications</h3>
+                                
+                                <div class="filter-options">
+                                    <label><input type="checkbox" value="Approved" class="filter-checkbox"> Approved</label>
+                                    <label><input type="checkbox" value="Pending" class="filter-checkbox"> Pending</label>
+                                    <label><input type="checkbox" value="Rejected" class="filter-checkbox"> Rejected</label>
+                                    <label><input type="checkbox" value="Under Review" class="filter-checkbox"> Under Review</label>
+                                </div>
+                                
+                                <div class="modal-actions">
+                                    <button id="applyFilterApplications" class="btn btn--primary">Apply</button>
+                                    <button id="closeFilterApplications" class="btn btn--secondary">Close</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="search_button_container">
+                            <button class="button export">Export</button>
+                        </div>
+                    </div>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Application ID</th>
+                                <th>Student Name</th>
+                                <th>Email</th>
+                                <th>Course</th>
+                                <th>Application Date</th>
+                                <th>Status</th>
+                                <th>Priority</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-cell="Application ID">#APP-2845</td>
+                                <td data-cell="Student Name">Maria Santos</td>
+                                <td data-cell="Email">maria.santos@email.com</td>
+                                <td data-cell="Course">Computer Science</td>
+                                <td data-cell="Application Date">Oct 10, 2025</td>
+                                <td data-cell="Status"><span class="badge badge--success">Approved</span></td>
+                                <td data-cell="Priority"><span class="badge badge--warning">High</span></td>
+                                <td data-cell="Actions">
+                                    <div class="table__actions">
+                                        <button class="table__btn table__btn--view">View</button>
+                                        <button class="table__btn table__btn--edit">Edit</button>
+                                        <button class="table__btn table__btn--delete">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-cell="Application ID">#APP-2844</td>
+                                <td data-cell="Student Name">Juan Dela Cruz</td>
+                                <td data-cell="Email">juan.delacruz@email.com</td>
+                                <td data-cell="Course">Business Administration</td>
+                                <td data-cell="Application Date">Oct 10, 2025</td>
+                                <td data-cell="Status"><span class="badge badge--warning">Pending</span></td>
+                                <td data-cell="Priority"><span class="badge badge--success">Normal</span></td>
+                                <td data-cell="Actions">
+                                    <div class="table__actions">
+                                        <button class="table__btn table__btn--view">View</button>
+                                        <button class="table__btn table__btn--edit">Edit</button>
+                                        <button class="table__btn table__btn--delete">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-cell="Application ID">#APP-2843</td>
+                                <td data-cell="Student Name">Anna Reyes</td>
+                                <td data-cell="Email">anna.reyes@email.com</td>
+                                <td data-cell="Course">Engineering</td>
+                                <td data-cell="Application Date">Oct 9, 2025</td>
+                                <td data-cell="Status"><span class="badge badge--warning">Under Review</span></td>
+                                <td data-cell="Priority"><span class="badge badge--warning">High</span></td>
+                                <td data-cell="Actions">
+                                    <div class="table__actions">
+                                        <button class="table__btn table__btn--view">View</button>
+                                        <button class="table__btn table__btn--edit">Edit</button>
+                                        <button class="table__btn table__btn--delete">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-cell="Application ID">#APP-2842</td>
+                                <td data-cell="Student Name">Carlos Garcia</td>
+                                <td data-cell="Email">carlos.garcia@email.com</td>
+                                <td data-cell="Course">Information Technology</td>
+                                <td data-cell="Application Date">Oct 9, 2025</td>
+                                <td data-cell="Status"><span class="badge badge--danger">Rejected</span></td>
+                                <td data-cell="Priority"><span class="badge badge--success">Normal</span></td>
+                                <td data-cell="Actions">
+                                    <div class="table__actions">
+                                        <button class="table__btn table__btn--view">View</button>
+                                        <button class="table__btn table__btn--edit">Edit</button>
+                                        <button class="table__btn table__btn--delete">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-cell="Application ID">#APP-2841</td>
+                                <td data-cell="Student Name">Sofia Martinez</td>
+                                <td data-cell="Email">sofia.martinez@email.com</td>
+                                <td data-cell="Course">Nursing</td>
+                                <td data-cell="Application Date">Oct 8, 2025</td>
+                                <td data-cell="Status"><span class="badge badge--success">Approved</span></td>
+                                <td data-cell="Priority"><span class="badge badge--success">Normal</span></td>
+                                <td data-cell="Actions">
+                                    <div class="table__actions">
+                                        <button class="table__btn table__btn--view">View</button>
+                                        <button class="table__btn table__btn--edit">Edit</button>
+                                        <button class="table__btn table__btn--delete">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-cell="Application ID">#APP-2840</td>
+                                <td data-cell="Student Name">Miguel Torres</td>
+                                <td data-cell="Email">miguel.torres@email.com</td>
+                                <td data-cell="Course">Architecture</td>
+                                <td data-cell="Application Date">Oct 8, 2025</td>
+                                <td data-cell="Status"><span class="badge badge--warning">Pending</span></td>
+                                <td data-cell="Priority"><span class="badge badge--warning">High</span></td>
+                                <td data-cell="Actions">
+                                    <div class="table__actions">
+                                        <button class="table__btn table__btn--view">View</button>
+                                        <button class="table__btn table__btn--edit">Edit</button>
+                                        <button class="table__btn table__btn--delete">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Scheduling Section -->
+            <section class="section" id="scheduling_section">
+                <div class="table-container">
+                    <div class="table-container__header">
+                        <h2 class="table-container__title">Exam Scheduling</h2>
+                        <p class="table-container__subtitle">Manage exam schedules and room assignments</p>
+                    </div>
+
+                    <div class="filtration_container">
+                        <div class="search_input_container">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+                            <input type="text" placeholder="Search schedules...">
+                        </div>
+
+                        <div class="search_button_container">
+                            <button class="button filter">Filter
+                                <span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list-filter-plus-icon lucide-list-filter-plus"><path d="M12 5H2"/><path d="M6 12h12"/><path d="M9 19h6"/><path d="M16 5h6"/><path d="M19 8V2"/></svg></span>
+                            </button>
+                        </div>
+
+                        <!-- Modal Filter -->
+                        <div id="filterPopupScheduling" class="modal">
+                            <div class="modal-content">
+                                <h3>Filter Schedules</h3>
+                                
+                                <div class="filter-options">
+                                    <label><input type="checkbox" value="Scheduled" class="filter-checkbox"> Scheduled</label>
+                                    <label><input type="checkbox" value="Completed" class="filter-checkbox"> Completed</label>
+                                    <label><input type="checkbox" value="Cancelled" class="filter-checkbox"> Cancelled</label>
+                                    <label><input type="checkbox" value="Rescheduled" class="filter-checkbox"> Rescheduled</label>
+                                </div>
+                                
+                                <div class="modal-actions">
+                                    <button id="applyFilterScheduling" class="btn btn--primary">Apply</button>
+                                    <button id="closeFilterScheduling" class="btn btn--secondary">Close</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="search_button_container">
+                            <button class="button export">Export</button>
+                        </div>
+                    </div>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Schedule ID</th>
+                                <th>Course</th>
+                                <th>Subject</th>
+                                <th>Date & Time</th>
+                                <th>Room</th>
+                                <th>Capacity</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-cell="Schedule ID">#SCH-001</td>
+                                <td data-cell="Course">Computer Science</td>
+                                <td data-cell="Subject">Data Structures</td>
+                                <td data-cell="Date & Time">Oct 15, 2025 - 9:00 AM</td>
+                                <td data-cell="Room">Room 101</td>
+                                <td data-cell="Capacity">50/50</td>
+                                <td data-cell="Status"><span class="badge badge--success">Scheduled</span></td>
+                                <td data-cell="Actions">
+                                    <div class="table__actions">
+                                        <button class="table__btn table__btn--view">View</button>
+                                        <button class="table__btn table__btn--edit">Edit</button>
+                                        <button class="table__btn table__btn--delete">Cancel</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-cell="Schedule ID">#SCH-002</td>
+                                <td data-cell="Course">Business Administration</td>
+                                <td data-cell="Subject">Marketing Principles</td>
+                                <td data-cell="Date & Time">Oct 16, 2025 - 2:00 PM</td>
+                                <td data-cell="Room">Room 205</td>
+                                <td data-cell="Capacity">45/50</td>
+                                <td data-cell="Status"><span class="badge badge--success">Scheduled</span></td>
+                                <td data-cell="Actions">
+                                    <div class="table__actions">
+                                        <button class="table__btn table__btn--view">View</button>
+                                        <button class="table__btn table__btn--edit">Edit</button>
+                                        <button class="table__btn table__btn--delete">Cancel</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-cell="Schedule ID">#SCH-003</td>
+                                <td data-cell="Course">Engineering</td>
+                                <td data-cell="Subject">Calculus II</td>
+                                <td data-cell="Date & Time">Oct 17, 2025 - 10:30 AM</td>
+                                <td data-cell="Room">Room 301</td>
+                                <td data-cell="Capacity">40/40</td>
+                                <td data-cell="Status"><span class="badge badge--warning">Rescheduled</span></td>
+                                <td data-cell="Actions">
+                                    <div class="table__actions">
+                                        <button class="table__btn table__btn--view">View</button>
+                                        <button class="table__btn table__btn--edit">Edit</button>
+                                        <button class="table__btn table__btn--delete">Cancel</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-cell="Schedule ID">#SCH-004</td>
+                                <td data-cell="Course">Nursing</td>
+                                <td data-cell="Subject">Anatomy & Physiology</td>
+                                <td data-cell="Date & Time">Oct 18, 2025 - 1:00 PM</td>
+                                <td data-cell="Room">Room 102</td>
+                                <td data-cell="Capacity">30/35</td>
+                                <td data-cell="Status"><span class="badge badge--success">Scheduled</span></td>
+                                <td data-cell="Actions">
+                                    <div class="table__actions">
+                                        <button class="table__btn table__btn--view">View</button>
+                                        <button class="table__btn table__btn--edit">Edit</button>
+                                        <button class="table__btn table__btn--delete">Cancel</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-cell="Schedule ID">#SCH-005</td>
+                                <td data-cell="Course">Information Technology</td>
+                                <td data-cell="Subject">Database Management</td>
+                                <td data-cell="Date & Time">Oct 19, 2025 - 3:30 PM</td>
+                                <td data-cell="Room">Room 203</td>
+                                <td data-cell="Capacity">25/30</td>
+                                <td data-cell="Status"><span class="badge badge--danger">Cancelled</span></td>
+                                <td data-cell="Actions">
+                                    <div class="table__actions">
+                                        <button class="table__btn table__btn--view">View</button>
+                                        <button class="table__btn table__btn--edit">Edit</button>
+                                        <button class="table__btn table__btn--delete">Cancel</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td data-cell="Schedule ID">#SCH-006</td>
+                                <td data-cell="Course">Architecture</td>
+                                <td data-cell="Subject">Design Principles</td>
+                                <td data-cell="Date & Time">Oct 20, 2025 - 11:00 AM</td>
+                                <td data-cell="Room">Room 401</td>
+                                <td data-cell="Capacity">20/25</td>
+                                <td data-cell="Status"><span class="badge badge--success">Scheduled</span></td>
+                                <td data-cell="Actions">
+                                    <div class="table__actions">
+                                        <button class="table__btn table__btn--view">View</button>
+                                        <button class="table__btn table__btn--edit">Edit</button>
+                                        <button class="table__btn table__btn--delete">Cancel</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section class="section" id="settings_section">
+                <div class="settings-container">
+                    <div class="settings-header">
+                        <h2 class="settings-title">Settings</h2>
+                        <p class="settings-subtitle">Manage your dashboard preferences</p>
+                    </div>
+                    
+                    <div class="settings-content">
+                        <div class="settings-item">
+                            <div class="settings-item__label">
+                                <span class="settings-item__text">Theme</span>
+                                <span class="settings-item__description">Toggle between light and dark mode</span>
+                            </div>
+                            <div class="settings-item__control">
+                                <button class="btn btn--icon" id="settingsThemeToggle" aria-label="Toggle theme">
+                                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="exam_permit_generation_section">
+                 <div class="table-container">
+                        <div class="table-container__header">
+                            <h2 class="table-container__title">Permit Generation</h2>
+                        </div>
+
+                        <div class="filtration_container">
+                            <div class="search_input_container">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+                                <input type="text">
+                            </div>
+
+                            <div class="search_button_container">
+                                <button class="button filter">Filter
+                                     <span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list-filter-plus-icon lucide-list-filter-plus"><path d="M12 5H2"/><path d="M6 12h12"/><path d="M9 19h6"/><path d="M16 5h6"/><path d="M19 8V2"/></svg></span>
+                                </button>
+                            </div>
+
+                            <!-- Modal Filter -->
+                            <div id="filterPopup" class="modal">
+                                <div class="modal-content">
+                                    <h3>Filter Applications</h3>
+                                    
+                                    <div class="filter-options">
+                                    <label><input type="checkbox" value="Approved" class="filter-checkbox"> Approved</label>
+                                    <label><input type="checkbox" value="Pending" class="filter-checkbox"> Pending</label>
+                                    <label><input type="checkbox" value="Rejected" class="filter-checkbox"> Rejected</label>
+                                    </div>
+                                    
+                                    <div class="modal-actions">
+                                    <button id="applyFilter" class="btn btn--primary">Apply</button>
+                                    <button id="closeFilter" class="btn btn--secondary">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="search_button_container">
+                                <button class="button export">Export</button>
+                            </div>
+
+                            
+                        </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Application ID</th>
+                                    <th>Student Name</th>
+                                    <th>Course</th>
+                                    <th>date sent</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               <tr>
+                                    <td data-cell="Application ID">#APP-2845</td>
+                                    <td data-cell="Student Name">Maria Santos</td>
+                                    <td data-cell="Course">Computer Science</td>
+                                    <td data-cell="Date Sent">Oct 10, 2025</td>
+                                    <td data-cell="Status"><span class="badge badge--danger status">Failed</span></td>
+                                    <td data-cell="Action">
+                                        <div class="table__actions">
+                                        <button class="table__btn table__btn--delete showResendbtn" style="display:none;">Resend</button>
+                                        <button class="table__btn showViewbtn" style="display:none;">View</button>
+                                        <button class="table__btn table__btn--edit sendbtn">Send</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#APP-2844</td>
+                                    <td>Juan Dela Cruz</td>
+                                    <td>Business Admin</td>
+                                    <td>Oct 10, 2025</td>
+                                    <td><span class="badge badge--danger status">Failed</span></td>
+                                    <td>
+                                        <div class="table__actions">
+                                            <button class="table__btn table__btn--delete showResendbtn" style="display: none;">Resend</button>
+                                            <button class="table__btn showViewbtn" style="display: none;">View</button>
+                                            <button class="table__btn table__btn--edit sendbtn">Send</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#APP-2843</td>
+                                    <td>Anna Reyes</td>
+                                    <td>Engineering</td>
+                                    <td>Oct 9, 2025</td>
+                                    <td><span class="badge badge--success status">Sent</span></td>
+                                    <td>
+                                        <div class="table__actions">
+                                            <button class="table__btn table__btn--delete showResendbtn" style="display: none;">Resend</button>
+                                            <button class="table__btn showViewbtn" style="display: none;">View</button>
+                                            <button class="table__btn table__btn--edit sendbtn">Send</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#APP-2842</td>
+                                    <td>Carlos Garcia</td>
+                                    <td>Information Tech</td>
+                                    <td>Oct 9, 2025</td>
+                                    <td><span class="badge badge--danger status">Failed</span></td>
+                                    <td>
+                                        <div class="table__actions">
+                                            <button class="table__btn table__btn--delete showResendbtn" style="display: none;">Resend</button>
+                                            <button class="table__btn showViewbtn" style="display: none;">View</button>
+                                            <button class="table__btn table__btn--edit sendbtn">Send</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#APP-2841</td>
+                                    <td>Sofia Martinez</td>
+                                    <td>Nursing</td>
+                                    <td>Oct 8, 2025</td>
+                                    <td><span class="badge badge--success status">Sent</span></td>
+                                    <td>
+                                        <div class="table__actions">
+                                            <button class="table__btn table__btn--delete showResendbtn" style="display: none;">Resend</button>
+                                            <button class="table__btn showViewbtn" style="display: none;">View</button>
+                                            <button class="table__btn table__btn--edit sendbtn">Send</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#APP-2840</td>
+                                    <td>Miguel Torres</td>
+                                    <td>Architecture</td>
+                                    <td>Oct 8, 2025</td>
+                                    <td><span class="badge badge--danger status">Failed</span></td>
+                                    <td>
+                                        <div class="table__actions">
+                                            <button class="table__btn table__btn--delete showResendbtn" style="display: none;">Resend</button>
+                                            <button class="table__btn showViewbtn" style="display: none;">View</button>
+                                            <button class="table__btn table__btn--edit sendbtn">Send</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>#APP-2839</td>
+                                    <td>Isabella Cruz</td>
+                                    <td>Psychology</td>
+                                    <td>Oct 7, 2025</td>
+                                    <td><span class="badge badge--danger status">Failed</span></td>
+                                    <td>
+                                        <div class="table__actions">
+                                            <button class="table__btn table__btn--delete showResendbtn" style="display: none;">Resend</button>
+                                            <button class="table__btn showViewbtn" style="display: none;">View</button>
+                                            <button class="table__btn table__btn--edit sendbtn">Send</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="./src/Javascript/dahsboard.js"></script>
+</body>
+</html>

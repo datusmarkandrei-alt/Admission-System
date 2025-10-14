@@ -1,108 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shapes + Moving Line Background</title>
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      font-family: sans-serif;
-      overflow: hidden;
-      position: relative;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Filter</title>
+    <style>
+        :root {
+            --color-border: #e5e7eb;
+            --color-bg: #ffffff;
+            --color-input-bg: #f9fafb;
+            --color-text: #111827;
+            --color-text-secondary: #6b7280;
+            --color-primary: #3b82f6;
+            --color-hover: #f3f4f6;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 0.75rem;
+            --spacing-md: 1rem;
+            --border-radius: 0.5rem;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
 
-    /* Background container */
-    .background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
-      overflow: hidden;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* Shapes */
-    .shape {
-      position: absolute;
-      border-radius: 20%;
-      opacity: 0.3;
-      animation: float 10s linear infinite;
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            padding: 2rem;
+            background-color: #f9fafb;
+            color: var(--color-text);
+        }
 
-    @keyframes float {
-      0% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-50px) rotate(180deg); }
-      100% { transform: translateY(0) rotate(360deg); }
-    }
+        .filtration_container {
+            border: 1px solid var(--color-border);
+            background-color: var(--color-bg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            flex-wrap: wrap;
+        }
 
-    /* Diagonal line */
-    .diagonal-line {
-      position: absolute;
-      top: -50px;
-      left: -100px;
-      width: 200%;
-      height: 2px;
-      background: linear-gradient(to right, #FF6B6B, #6BCB77, #4D96FF);
-      opacity: 0.5;
-      transform: rotate(45deg);
-      animation: moveLine 8s linear infinite;
-      z-index: -1;
-    }
+        .search_input_container {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            background-color: var(--color-input-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
+            transition: all 0.2s ease;
+        }
 
-    @keyframes moveLine {
-      0% { transform: translateX(-100%) rotate(45deg); }
-      50% { transform: translateX(0) rotate(45deg); }
-      100% { transform: translateX(-100%) rotate(45deg); }
-    }
+        .search_input_container:focus-within {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            background-color: var(--color-bg);
+        }
 
-    /* Page content */
-    .content {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding-top: 50px;
-      color: #333;
-    }
+        .search_input_container svg {
+            color: var(--color-text-secondary);
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+        }
 
-    @media (max-width: 600px) {
-      .shape { opacity: 0.2; }
-      .diagonal-line { opacity: 0.3; }
-    }
-  </style>
+        .search_input_container input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 0.875rem;
+            color: var(--color-text);
+            width: 100%;
+            padding: 0.25rem 0;
+        }
+
+        .search_input_container input::placeholder {
+            color: var(--color-text-secondary);
+        }
+
+        .filter_group {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .filter_group label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--color-text);
+            white-space: nowrap;
+        }
+
+        .filter_group select {
+            padding: 0.5rem 2rem 0.5rem 0.75rem;
+            font-size: 0.875rem;
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            cursor: pointer;
+            outline: none;
+            transition: all 0.2s ease;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 16px;
+        }
+
+        .filter_group select:hover {
+            background-color: var(--color-hover);
+            border-color: var(--color-primary);
+        }
+
+        .filter_group select:focus {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        /* Demo table to show context */
+        .table_container {
+            margin-top: 1rem;
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius);
+            background-color: var(--color-bg);
+            overflow: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: var(--color-input-bg);
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--color-text);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        td {
+            padding: 0.75rem 1rem;
+            font-size: 0.875rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .status_badge {
+            display: inline-block;
+            padding: 0.25rem 0.625rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .status_sent {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+
+        .status_failed {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+
+        @media (max-width: 640px) {
+            .filtration_container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search_input_container {
+                max-width: 100%;
+            }
+
+            .filter_group {
+                justify-content: space-between;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="filtration_container">
+        <div class="search_input_container">
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m21 21-4.34-4.34"/>
+                    <circle cx="11" cy="11" r="8"/>
+                </svg>
+            </span>
+            <input type="text" placeholder="Search...">
+        </div>
+        <div class="filter_group">
+            <label for="status">Filter:</label>
+            <select id="status" name="status">
+                <option value="all">All</option>
+                <option value="sent">Sent</option>
+                <option value="failed">Failed</option>
+            </select>
+        </div>
+    </div>
 
-  <div class="background" id="bg"></div>
-  <div class="diagonal-line"></div>
+    <!-- Demo table for context -->
+    <div class="table_container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#001</td>
+                    <td>John Doe</td>
+                    <td><span class="status_badge status_sent">Sent</span></td>
+                    <td>Oct 13, 2025</td>
+                </tr>
+                <tr>
+                    <td>#002</td>
+                    <td>Jane Smith</td>
+                    <td><span class="status_badge status_sent">Sent</span></td>
+                    <td>Oct 12, 2025</td>
+                </tr>
+                <tr>
+                    <td>#003</td>
+                    <td>Bob Johnson</td>
+                    <td><span class="status_badge status_failed">Failed</span></td>
+                    <td>Oct 11, 2025</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-  <div class="content">
-    <h1>Shapes + Moving Diagonal Line</h1>
-    <p>Floating shapes with a diagonal moving line!</p>
-  </div>
+    <script>
+        // Demo functionality
+        const searchInput = document.querySelector('.search_input_container input');
+        const filterSelect = document.querySelector('#status');
 
-  <script>
-    const bg = document.getElementById('bg');
-    const colors = ['#FF6B6B','#6BCB77','#4D96FF','#FFD93D','#9D4EDD'];
-    const shapeCount = window.innerWidth < 600 ? 15 : 30;
+        searchInput.addEventListener('input', (e) => {
+            console.log('Search:', e.target.value);
+        });
 
-    for (let i = 0; i < shapeCount; i++) {
-      const shape = document.createElement('div');
-      shape.classList.add('shape');
-      const size = Math.random() * 60 + 20; // px
-      shape.style.width = `${size}px`;
-      shape.style.height = `${size}px`;
-      shape.style.background = colors[Math.floor(Math.random() * colors.length)];
-      shape.style.top = `${Math.random() * 100}%`;
-      shape.style.left = `${Math.random() * 100}%`;
-      shape.style.animationDuration = `${5 + Math.random() * 10}s`;
-      bg.appendChild(shape);
-    }
-  </script>
-
+        filterSelect.addEventListener('change', (e) => {
+            console.log('Filter:', e.target.value);
+        });
+    </script>
 </body>
 </html>
